@@ -9,7 +9,8 @@ const timeout = require('connect-timeout')
 const { conf } = require('./utils/conf')
 const { DOC_URL } = require('./utils/constants')
 const montarMensagemDeErroDeSchema = require('./utils/montarMensagemDeErroDeSchema')
-const monitor = require('./monitor')
+const monitor = require('./utils/monitor')
+const rateLimite = require('./utils/rate-limit')
 
 const ehAmbienteDeTestes = process.env.NODE_ENV === 'serverest-test'
 
@@ -44,6 +45,8 @@ monitor(app)
 if (!ehAmbienteDeTestes) {
   app.use(logger('dev'))
 }
+
+rateLimite(app)
 
 app.use('/login', require('./routes/login-route'))
 app.use('/usuarios', require('./routes/usuarios-route'))

@@ -10,7 +10,7 @@ Esse arquivo está marcado para ser ignorado no arquivo stryker.conf.js
 const moesif = require('moesif-nodejs')
 const os = require('os')
 
-const { version: serverestVersion } = require('../package.json')
+const { version: serverestVersion } = require('../../package.json')
 
 const ehAmbienteDeDesenvolvimento = process.env.NODE_ENV === 'serverest-development'
 const ehAmbienteDeTestes = process.env.NODE_ENV === 'serverest-test'

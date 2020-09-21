@@ -5,7 +5,8 @@ module.exports = {
   mutate: [
     'src/**/*.js',
     '!src/server.js',
-    '!src/monitor.js'
+    '!src/utils/monitor.js',
+    '!src/utils/rate-limit.js'
   ],
   thresholds: {
     high: 90,
